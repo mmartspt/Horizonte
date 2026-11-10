@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HORIZONTE — projetos, sustentabilidade, inovação e comunidade.">
+  <meta name="theme-color" content="#f5f0e7">
+  <meta property="og:title" content="HORIZONTE">
+  <meta property="og:description" content="Projetos, sustentabilidade, inovação e comunidade.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero.jpg">
+  <title>HORIZONTE</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="skip">Saltar para o conteúdo</a>
+
+  <header class="site-header" id="topo">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="HORIZONTE">
+        <img src="assets/logo.svg" alt="" class="brand-mark">
+        <span>HORIZONTE</span>
+      </a>
+
+      <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu" data-menu-toggle>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#sobre" data-nav="sobre" data-i18n="nav.about">Sobre</a>
+        <a href="#projetos" data-nav="projetos" data-i18n="nav.projects">Projetos</a>
+        <a href="#galeria" data-nav="galeria" data-i18n="nav.gallery">Galeria</a>
+        <a href="#blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+        <a href="#contactos" data-nav="contactos" data-i18n="nav.contact">Contactos</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="language-picker">
+          <button class="language-button" type="button" aria-expanded="false" aria-haspopup="listbox" data-language-button>
+            <span data-current-language>PT</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <div class="language-menu" role="listbox" aria-label="Idioma" hidden>
+            <button type="button" data-lang="pt" role="option">Português</button>
+            <button type="button" data-lang="en" role="option">English</button>
+            <button type="button" data-lang="es" role="option">Español</button>
+          </div>
+        </div>
+
+        <button class="icon-button share-button" type="button" data-share aria-label="Partilhar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0-4 4m4-4 4 4M5 13v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section-dark" id="inicio">
+      <div class="hero-media">
+        <img src="assets/hero.jpg" alt="Árvore numa pequena ilha rochosa rodeada de água e montanhas" class="hero-image">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content container">
+        <p class="eyebrow" data-i18n="hero.eyebrow">UM NOVO HORIZONTE</p>
+        <h1 data-i18n="hero.title">Ideias que encontram caminho.</h1>
+        <p class="hero-text" data-i18n="hero.text">Um espaço para projetos, criatividade, sustentabilidade, inovação e comunidade.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projetos" data-i18n="hero.cta">Explorar projetos</a>
+          <a class="button button-ghost" href="#sobre" data-i18n="hero.more">Conhecer o HORIZONTE</a>
+        </div>
+      </div>
+      <a class="scroll-indicator" href="#sobre" aria-label="Descer para o conteúdo">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="intro section" id="sobre">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow accent" data-i18n="about.eyebrow">SOBRE</p>
+          <h2 data-i18n="about.title">Um lugar para transformar ideias em possibilidades.</h2>
+        </div>
+        <div class="rich-text">
+          <p data-i18n="about.p1">O HORIZONTE nasce como um espaço aberto à criação e à descoberta. Aqui cruzam-se projetos, pessoas, conhecimento e novas formas de olhar para o futuro.</p>
+          <p data-i18n="about.p2">A identidade é simples: pensar com ambição, construir com cuidado e partilhar aquilo que pode ser útil aos outros.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow accent" data-i18n="pillars.eyebrow">PRINCÍPIOS</p>
+          <h2 data-i18n="pillars.title">Quatro direções.</h2>
+        </div>
+        <div class="pillar-grid">
+          <article class="pillar-card">
+            <span class="number">01</span>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V9M7 12l5-5 5 5M5 21h14"/></svg>
+            </div>
+            <h3 data-i18n="pillar.sustainability.title">Sustentabilidade</h3>
+            <p data-i18n="pillar.sustainability.text">Pensar no presente sem perder de vista o futuro.</p>
+          </article>
+          <article class="pillar-card">
+            <span class="number">02</span>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4m0 10v4M3 12h4m10 0h4M5.6 5.6l2.8 2.8m7.2 7.2 2.8 2.8m0-12.8-2.8 2.8m-7.2 7.2-2.8 2.8"/></svg>
+            </div>
+            <h3 data-i18n="pillar.innovation.title">Inovação</h3>
+            <p data-i18n="pillar.innovation.text">Experimentar, aprender e encontrar novas soluções.</p>
+          </article>
+          <article class="pillar-card">
+            <span class="number">03</span>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7.5-3a3 3 0 1 1 0 6m2 6v-1a4 4 0 0 0-3-3.87"/></svg>
+            </div>
+            <h3 data-i18n="pillar.community.title">Comunidade</h3>
+            <p data-i18n="pillar.community.text">Criar ligações e dar espaço a diferentes ideias.</p>
+          </article>
+          <article class="pillar-card">
+            <span class="number">04</span>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16M5 5l14 14M19 5 5 19"/></svg>
+            </div>
+            <h3 data-i18n="pillar.sharing.title">Partilha</h3>
+            <p data-i18n="pillar.sharing.text">Conhecimento e criatividade ganham valor quando circulam.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects section" id="projetos">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow accent" data-i18n="projects.eyebrow">PROJETOS</p>
+            <h2 data-i18n="projects.title">Ideias em movimento.</h2>
+          </div>
+          <p class="section-intro" data-i18n="projects.intro">Uma seleção de iniciativas que representam o espírito do HORIZONTE.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card project-large">
+            <div class="project-visual visual-green">
+              <span>H</span>
+            </div>
+            <div class="project-content">
+              <span class="tag" data-i18n="project.tag1">EM DESTAQUE</span>
+              <h3 data-i18n="project.one.title">Horizonte Verde</h3>
+              <p data-i18n="project.one.text">Ideias e ações centradas na relação entre pessoas, espaço e natureza.</p>
+              <a href="#contactos" class="text-link" data-i18n="project.cta">Saber mais <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual visual-gold">
+              <span>02</span>
+            </div>
+            <div class="project-content">
+              <span class="tag" data-i18n="project.tag2">EXPLORAÇÃO</span>
+              <h3 data-i18n="project.two.title">Novas Perspetivas</h3>
+              <p data-i18n="project.two.text">Experimentação, criatividade e tecnologia ao serviço de novas ideias.</p>
+              <a href="#contactos" class="text-link" data-i18n="project.cta">Saber mais <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual visual-dark">
+              <span>03</span>
+            </div>
+            <div class="project-content">
+              <span class="tag" data-i18n="project.tag3">COMUNIDADE</span>
+              <h3 data-i18n="project.three.title">Pontos de Encontro</h3>
+              <p data-i18n="project.three.text">Um espaço para aproximar pessoas, conhecimento e projetos.</p>
+              <a href="#contactos" class="text-link" data-i18n="project.cta">Saber mais <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section section section-soft" id="galeria">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow accent" data-i18n="gallery.eyebrow">GALERIA</p>
+            <h2 data-i18n="gallery.title">Um horizonte visual.</h2>
+          </div>
+          <p class="section-intro" data-i18n="gallery.intro">Imagens e detalhes para descobrir o universo visual do projeto.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item gallery-wide" type="button" data-gallery-index="0">
+            <img src="assets/hero.jpg" alt="Paisagem do HORIZONTE">
+            <span class="gallery-caption"><span>01</span><strong>Horizonte</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-gallery-index="1">
+            <div class="gallery-placeholder placeholder-green"><span>H</span></div>
+            <span class="gallery-caption"><span>02</span><strong>Natureza</strong></span>
+          </button>
+          <button class="gallery-item" type="button" data-gallery-index="2">
+            <div class="gallery-placeholder placeholder-gold"><span>∞</span></div>
+            <span class="gallery-caption"><span>03</span><strong>Ideias</strong></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog section" id="blog">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow accent" data-i18n="blog.eyebrow">BLOG</p>
+            <h2 data-i18n="blog.title">Notas do caminho.</h2>
+          </div>
+          <p class="section-intro" data-i18n="blog.intro">Reflexões, novidades e pequenas descobertas.</p>
+        </div>
+
+        <div class="article-grid">
+          <article class="article-card">
+            <div class="article-meta"><span>01</span><span data-i18n="blog.read">LEITURA</span></div>
+            <h3 data-i18n="article.one.title">Porque precisamos de novos horizontes</h3>
+            <p data-i18n="article.one.text">Uma reflexão sobre mudança, criatividade e a coragem de experimentar.</p>
+            <button class="text-link article-button" type="button" data-article="one" data-i18n="blog.readMore">Ler artigo <span>→</span></button>
+          </article>
+          <article class="article-card">
+            <div class="article-meta"><span>02</span><span data-i18n="blog.read">LEITURA</span></div>
+            <h3 data-i18n="article.two.title">Pequenas ações, grandes efeitos</h3>
+            <p data-i18n="article.two.text">Como escolhas simples podem criar mudanças significativas ao longo do tempo.</p>
+            <button class="text-link article-button" type="button" data-article="two" data-i18n="blog.readMore">Ler artigo <span>→</span></button>
+          </article>
+          <article class="article-card">
+            <div class="article-meta"><span>03</span><span data-i18n="blog.read">LEITURA</span></div>
+            <h3 data-i18n="article.three.title">Partilhar para multiplicar</h3>
+            <p data-i18n="article.three.text">Conhecimento partilhado transforma uma ideia individual numa possibilidade coletiva.</p>
+            <button class="text-link article-button" type="button" data-article="three" data-i18n="blog.readMore">Ler artigo <span>→</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-dark" id="contactos">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow light" data-i18n="contact.eyebrow">CONTACTOS</p>
+          <h2 data-i18n="contact.title">Vamos conversar?</h2>
+          <p data-i18n="contact.text">Tens uma ideia, projeto ou simplesmente queres entrar em contacto? Envia uma mensagem.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-light" href="mailto:contacto@horizonte.example" data-i18n="contact.email">Enviar e-mail</a>
+          <button class="button button-outline-light" type="button" data-share data-i18n="contact.share">Partilhar HORIZONTE</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="#inicio">
+          <img src="assets/logo.svg" alt="">
+          <span>HORIZONTE</span>
+        </a>
+        <p data-i18n="footer.description">Projetos, ideias e possibilidades.</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h3 data-i18n="footer.explore">Explorar</h3>
+          <a href="#sobre" data-i18n="nav.about">Sobre</a>
+          <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+          <a href="#galeria" data-i18n="nav.gallery">Galeria</a>
+          <a href="#blog" data-i18n="nav.blog">Blog</a>
+        </div>
+        <div>
+          <h3 data-i18n="footer.legal">Legal</h3>
+          <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
+          <a href="terms.html" data-i18n="footer.terms">Termos</a>
+          <a href="#contactos" data-i18n="nav.contact">Contactos</a>
+        </div>
+        <div>
+          <h3 data-i18n="footer.social">Redes</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span data-year></span> HORIZONTE. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
+      <div class="footer-tools">
+        <button type="button" class="footer-tool" data-contrast aria-pressed="false" data-i18n="footer.contrast">Alto contraste</button>
+        <button type="button" class="footer-tool" data-back-top data-i18n="footer.top">Voltar ao topo ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <div class="modal" aria-hidden="true" data-modal>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-label="Detalhe">
+      <button class="modal-close icon-button" type="button" aria-label="Fechar" data-modal-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="modal-media" data-modal-media></div>
+      <div class="modal-body">
+        <p class="eyebrow accent" data-modal-kicker></p>
+        <h2 data-modal-title></h2>
+        <p data-modal-text></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
