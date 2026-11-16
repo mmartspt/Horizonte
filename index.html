@@ -67,32 +67,48 @@ td.v{text-align:right;font-weight:600;white-space:nowrap}
 .ab:disabled{opacity:.4}
 .lv{display:grid;grid-template-columns:34px 1fr;gap:8px;padding:5px 0;border-bottom:1px solid var(--ln);font-size:.9rem}
 .lv b{color:var(--gd)}
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
-.u{position:relative;background:var(--p);border:2px solid var(--ln);border-radius:12px;padding:6px;text-align:center;font-size:.74rem;display:block}
-.u.cur{border-color:var(--gd);box-shadow:0 0 0 2px rgba(226,184,90,.35)}
-.u.tg{border-color:#ff6b6b;cursor:pointer;animation:pulse 1s infinite}
-.u.dead{opacity:.35;filter:grayscale(1)}
-.u .pt{aspect-ratio:1;border-radius:8px;overflow:hidden;background:#0e1124 center/45% no-repeat;position:relative;margin-bottom:4px}
-.u .pt img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.hpb{height:7px;border-radius:4px;background:#3a1b26;overflow:hidden;margin:4px 0;position:relative}
-.hpb i{display:block;height:100%;background:#4cd37a}
-.hpb s{position:absolute;left:0;top:0;height:100%;background:rgba(120,180,255,.85)}
-.chips span{display:inline-block;font-size:.62rem;background:var(--p2);border:1px solid var(--ln);border-radius:6px;padding:0 4px;margin:1px}
-.fl{position:absolute;left:50%;top:25%;transform:translateX(-50%);font:800 1.2rem Cinzel,serif;text-shadow:0 1px 3px #000;animation:fl .9s forwards;pointer-events:none;z-index:3}
-@keyframes fl{to{transform:translate(-50%,-44px);opacity:0}}
-@keyframes lunge{40%{transform:translateY(-14px) scale(1.07)}}
-@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
-@keyframes pulse{50%{box-shadow:0 0 0 4px rgba(255,107,107,.4)}}
-.u.atk{animation:lunge .45s}.u.hit{animation:shake .4s}
+.arena{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--ln);background:radial-gradient(900px 420px at 50% 50%,#2a3170 0%,#141838 55%,#0a0c16 100%);padding:8px 5px;margin:8px 0}
+.arena.shk{animation:shk .35s}
+.arena::before{content:"VS";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:800 2rem Cinzel,serif;color:rgba(255,255,255,.07);pointer-events:none}
+.trow{display:flex;gap:4px;justify-content:center;margin:10px 0}
+.u{position:relative;flex:1 1 0;min-width:0;max-width:112px;border:3px solid transparent;background:linear-gradient(var(--p),var(--p)) padding-box,var(--rbg,linear-gradient(var(--ln),var(--ln))) border-box;border-radius:12px;padding:3px;text-align:center;font-size:.6rem;line-height:1.15;display:block;color:var(--tx)}
+.u.rem{max-width:64px;opacity:.85}
+.u.cur{box-shadow:0 0 0 2px #fff,0 0 16px 4px var(--gd);transform:translateY(-5px);z-index:2}
+.u.tg{outline:3px solid #ff6b6b;animation:pulse 1s infinite}
+.u.dead{opacity:.3;filter:grayscale(1)}
+.u.pet{filter:grayscale(1) contrast(1.25)}
+.u.imm{box-shadow:0 0 14px 4px #bff}
+.u.orbd::after{content:"";position:absolute;left:50%;top:-9px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:radial-gradient(circle,#000 52%,#d9d0ff 62%,transparent 72%);box-shadow:0 0 10px #a98bff;animation:orb 1.4s infinite alternate;z-index:3}
+.u.hit{animation:hitk .3s}
+.pt{aspect-ratio:3/4;border-radius:7px;overflow:hidden;background:#0e1124 center/45% no-repeat;position:relative}
+.pt img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.pt .cb{position:absolute;left:2px;bottom:2px;width:20px;height:20px;border-radius:50%;border:1px solid #000}
+.pt.big{width:110px;flex:none;border:3px solid transparent;background:linear-gradient(#0e1124,#0e1124) padding-box,var(--rbg) border-box;border-radius:12px}
+.nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:3px;font-weight:600;min-height:2.3em;word-break:break-word}
+.hpb{height:6px;border-radius:3px;background:#3a1b26;overflow:hidden;margin:3px 0 1px;position:relative}
+.hpb i{display:block;height:100%;background:#4cd37a;transition:width .35s}
+.hpb s{position:absolute;left:0;top:0;height:100%;background:rgba(120,200,255,.9);transition:width .35s}
+.chips{min-height:15px;font-size:.62rem}
+.fl{position:absolute;left:50%;font:800 1.2rem Cinzel,serif;text-shadow:0 1px 3px #000,0 0 6px #000;pointer-events:none;z-index:6;white-space:nowrap;animation:fl 1.25s ease-out forwards}
+.fxo,.proj{position:absolute;pointer-events:none;z-index:7}
+.ins{display:flex;gap:12px;align-items:flex-start}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.sl,.pk{display:flex;align-items:center;gap:6px;background:var(--p);border:2px solid var(--ln);border-radius:999px;padding:3px 12px 3px 3px;font-size:.8rem}
+.sl{border:3px solid transparent;background:linear-gradient(var(--p),var(--p)) padding-box,var(--rbg,linear-gradient(var(--ln),var(--ln))) border-box}
+.sl img,.pk img{width:28px;height:28px;border-radius:50%}
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pk:disabled{opacity:.4}
 .acts{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.act{display:flex;align-items:center;gap:6px;background:var(--p2);border:2px solid var(--ln);border-radius:12px;padding:4px 12px 4px 4px;font-size:.78rem;text-align:left}
+.act{display:flex;align-items:center;gap:6px;background:var(--p2);border:2px solid var(--ln);border-radius:12px;padding:5px 12px 5px 5px;font-size:.78rem;text-align:left}
 .act img{width:38px;height:38px;border-radius:50%}
 .act[aria-pressed=true]{border-color:var(--gd)}.act:disabled{opacity:.4}
-.log{max-height:160px;overflow:auto;font-size:.82rem;color:var(--mu);background:var(--p);border:1px solid var(--ln);border-radius:10px;padding:8px}
-.pick{display:flex;flex-wrap:wrap;gap:6px}
-.pk{display:flex;align-items:center;gap:6px;background:var(--p);border:2px solid var(--ln);border-radius:999px;padding:3px 12px 3px 3px;font-size:.8rem}
-.pk img{width:28px;height:28px;border-radius:50%}.pk[aria-pressed=true]{border-color:var(--gd);background:var(--p2)}
-@media(prefers-reduced-motion:reduce){.fi{transition:none}.u.atk,.u.hit,.fl,.u.tg{animation:none}}
+.log{max-height:260px;overflow:auto;font-size:.82rem;color:var(--mu);background:var(--p);border:1px solid var(--ln);border-radius:10px;padding:8px}
+@keyframes fl{0%{opacity:0;transform:translate(-50%,6px) scale(.6)}15%{opacity:1;transform:translate(-50%,0) scale(1.15)}100%{opacity:0;transform:translate(-50%,-40px) scale(1)}}
+@keyframes shk{20%{transform:translate(-4px,2px)}40%{transform:translate(4px,-2px)}60%{transform:translate(-3px,0)}}
+@keyframes hitk{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes orb{to{transform:scale(1.2)}}
+@keyframes pulse{50%{outline-color:#fff}}
+@media(prefers-reduced-motion:reduce){.fi{transition:none}.u.hit,.fl,.u.tg,.arena.shk,.u.orbd::after{animation:none}}
 </style>
 </head>
 <body>
@@ -191,8 +207,9 @@ const OT=[
 {id:'npc',n:'Unplayable Players (NPC)',c:'#9aa0b8',e:'N',d:'Characters you meet but do not play.'}];
 const AL=KS.concat(OT);
 const MG={hp:950,pa:70,ma:120,pd:6,md:7,sp:100,ac:95,ev:0,cc:8,cd:150,cr:1,sa:0,sr:0,sd:100,hr:1,ls:0,pp:0,mp:0,cdr:0,bp:120,dp:120,ag:95};
-const RARS=[['Common','#9aa0ad',1],['Rare','#4caf50',1.1],['Super Rare','#3a7bff',1.2],['Epic','#a24bff',1.35],['Mythic','#e53935',1.5],['Legendary','#ffb300',1.7],['Boss','#ffd400',2]];
-const MAXLV=50;
+const RARS=[['Common','#9aa0ad',1],['Rare','#4caf50',1.05],['Super Rare','#3a7bff',1.1],['Epic','#a24bff',1.15],['Mythic','#e53935',1.2],['Legendary','#ffb300',1.25],['Boss','#ffd400',1]];
+const LVMX={Common:50,Rare:75,'Super Rare':100,Epic:150,Mythic:175,Legendary:200,Boss:200};
+const maxLv=c=>c.r?LVMX[c.r]:50;
 const KW=[
 ['Barrier','A temporary shield on top of HP. Damage hits the Barrier first. (Not the same as the Shield buff, which absorbs a % of incoming damage.)'],
 ['Stun','The unit loses its next action.'],
@@ -212,47 +229,47 @@ const PS=(n,d,p,x)=>Object.assign({t:"Passive",n,d,p:p||{},ns:p?0:1},x||{});
 /* k = kingdom id, c = class, r = rarity (border colour), id = image name in images/, st = stat overrides. PROVISIONAL placement - confirm */
 const CH=[
 {id:"sand-master",n:"The Sand Master",k:"desert",c:"Mage",r:"Legendary",ab:[
- BA("Sandblast Strike","Single-target attack that deals moderate damage and has a 50% chance to apply Blind for 1 turn (reduces enemy Accuracy by 33%).",{m:1,ty:"m",rg:1,tg:"1",fx:[["blind",.5,1,.33]]}),
- {t:"Active",n:"Master's Mark",cd:3,d:"Applies a Master's Mark on an enemy for 3 turns. Reduces their Speed by 15%. At the end of the duration, the mark explodes, dealing minor damage. If the marked target is attacked, the mark explodes immediately, dealing bonus damage equal to 25% of the incoming damage.",s:{m:0,tg:"1",mk:1}},
+ BA("Sandblast Strike","Single-target attack that deals moderate damage and has a 50% chance to apply Blind for 1 turn (reduces enemy Accuracy by 33%).",{m:1,ty:"m",rg:1,tg:"1",v:"sand",fx:[["blind",.5,1,.33]]}),
+ {t:"Active",n:"Master's Mark",cd:3,d:"Applies a Master's Mark on an enemy for 3 turns. Reduces their Speed by 15%. At the end of the duration, the mark explodes, dealing minor damage. If the marked target is attacked, the mark explodes immediately, dealing bonus damage equal to 25% of the incoming damage.",s:{m:0,tg:"1",mk:1,rg:1,v:"curse"}},
  {t:"Super",n:"Magic Hourglass",cd:5,d:"Randomly places a Magic Hourglass on up to 3 targets (allies or enemies). Allies have all their cooldowns reduced by 1 turn. Enemies have all their cooldowns increased by 1 turn. Can target self.",s:{tg:"self",hg:1}},
- PS("Veil of Erosion","At the beginning of each turn, the enemy with the highest Attack loses 4% of their Max HP (stacks up to 16% maximum HP loss)."),
- PS("Veil of Frailty","At the beginning of each turn, the enemy with the highest Max HP loses 4% Attack (stacks up to 16% Attack reduction).")]},
+ PS("Veil of Erosion","At the beginning of each turn, the enemy with the highest Attack loses 4% of their Max HP (stacks up to 16% maximum HP loss).",{veilE:1}),
+ PS("Veil of Frailty","At the beginning of each turn, the enemy with the highest Max HP loses 4% Attack (stacks up to 16% Attack reduction).",{veilF:1})]},
 {id:"desert-elite",n:"The Desert Elite",k:"desert",c:"Tank",r:"Mythic",ab:[
- BA("Spear of the Dune Lord","Single-target attack that deals damage, ignores 10% of the target's Defense and increases this unit's Max HP by 2%. Empowered Spear (during Ascension): Strikes 3 random enemies with rays of light, dealing increased damage with 20% Defense Pierce. For each enemy hit, this unit gains a Barrier equal to 20% of the damage dealt.",{m:1,tg:"1",pen:.1,hpUp:.02,cap:.2,emp:{tg:"r3",m:1.3,pen:.2,bd:.2}},{adj:"The Max HP gain is now capped at +20% (it had no limit)."}),
+ BA("Spear of the Dune Lord","Single-target attack that deals damage, ignores 10% of the target's Defense and increases this unit's Max HP by 2%. Empowered Spear (during Ascension): Strikes 3 random enemies with rays of light, dealing increased damage with 20% Defense Pierce. For each enemy hit, this unit gains a Barrier equal to 20% of the damage dealt.",{m:1,tg:"1",pen:.1,hpUp:.02,cap:.2,emp:{tg:"r3",m:1.3,pen:.2,bd:.2,v:"ray",rg:1}},{adj:"The Max HP gain is now capped at +20% (it had no limit)."}),
  {t:"Active",n:"Desert Bulwark",cd:3,d:"Raises his shield to create a Barrier equal to 15% of his Max HP (stacks indefinitely).",s:{tg:"self",bar:.15,bcap:.45},adj:"Barrier stacking is now capped at 45% of Max HP."},
  {t:"Super",n:"Eagle's Ascension",cd:5,d:"This unit's armor shines brightly, increasing his Max HP by 2% and empowering his basic attack for the next 3 turns.",s:{tg:"self",hpUp:.02,cap:.2,self:[["asc",3,0]]}},
- PS("Camel's Fortitude","Reduces all physical melee damage received by 15%.",{dr:.15}),
- PS("Eagle's Legacy","For each dead ally, this unit gains +2% Max HP and +2% Speed (max 10%).")]},
+ PS("Camel's Fortitude","Reduces all physical melee damage received by 15%.",{dr:.15,drn:"Camel's Fortitude"}),
+ PS("Eagle's Legacy","For each dead ally, this unit gains +2% Max HP and +2% Speed (max 10%).",{leg:1})]},
 {id:"outlaw-sniper",n:"The Outlaw Sniper",k:"desert",c:"Shooter",r:"Epic",ab:[
- BA("Desert Piercer","Single-target attack that deals normal damage and ignores 20% of the target's Defense.",{m:1,tg:"1",pen:.2,rg:1}),
- {t:"Active",n:"Quick Reload",cd:3,d:"Attacks 3 random enemies dealing normal damage while ignoring 25% of the target's Defense. After using this skill, this unit cannot attack on the next turn.",s:{m:1,tg:"r3",pen:.25,rg:1,self:[["rest",1,0]]}},
- {t:"Super",n:"Mystic Deadeye",cd:5,d:"This unit enters a state of deep concentration and fires one powerful shot at a chosen enemy, dealing high damage while ignoring 100% of the target's Defense and cannot miss. For the next 2 turns, this unit gains +10% Accuracy and +10% Attack Speed.",s:{m:2,tg:"1",pen:1,nm:1,rg:1,self:[["spd",2,.1]]}},
+ BA("Desert Piercer","Single-target attack that deals normal damage and ignores 20% of the target's Defense.",{m:1,tg:"1",pen:.2,rg:1,v:"bullet"}),
+ {t:"Active",n:"Quick Reload",cd:3,d:"Attacks 3 random enemies dealing normal damage while ignoring 25% of the target's Defense. After using this skill, this unit cannot attack on the next turn.",s:{m:1,tg:"r3",pen:.25,rg:1,v:"bullet",self:[["rest",1,0]]}},
+ {t:"Super",n:"Mystic Deadeye",cd:5,d:"This unit enters a state of deep concentration and fires one powerful shot at a chosen enemy, dealing high damage while ignoring 100% of the target's Defense and cannot miss. For the next 2 turns, this unit gains +10% Accuracy and +10% Attack Speed.",s:{m:2,tg:"1",pen:1,nm:1,rg:1,v:"bullet",self:[["spd",2,.1]]}},
  PS("Shooter Bond","For each allied Shooter in the team, this unit gains +5% Attack (up to a maximum of +15% Attack). This unit does not count toward the bonus.",{sb:1}),
  PS("Desert Winds","At the start of battle, this unit and all allies gain +10% Speed.",{allySpd:.1})]},
 {id:"desert-cat",n:"The Desert Cat",k:"desert",c:"Assassin",r:"Super Rare",ab:[
  BA("Bone Dagger Strike","Single-target attack with her bone dagger that deals normal damage. Additionally, deals 3.5% of a random enemy's Max HP as true damage.",{m:1,tg:"1",tru:.035}),
  {t:"Active",n:"Shadow Step",cd:3,d:"Increases this unit's Evasion by 50% for 1 turn.",s:{tg:"self",self:[["eva",1,.5]]}},
  {t:"Super",n:"Backstab Ambush",cd:5,d:"This unit stabs a chosen enemy with her bone dagger, dealing damage and applying Fear (30% chance for the enemy to lose its action) this turn. On the next turn, she automatically retrieves the dagger from the same target, dealing bonus damage and applying Fear for 1 additional turn before returning to her original position.",s:{m:1.3,tg:"1",fx:[["fear",1,2,.3]]},adj:"Fear now matches the official definition (30% chance to lose the action). The slide said 'miss attacks'. In the simulator the second stab is not separate yet."},
- PS("Outsider's Fury","If there are no other copies of this unit on the team, she gains +3% Damage for each Desert Kingdom unit in battle (up to a maximum of +15% Damage)."),
- PS("Bone Legacy","Upon death, this unit leaves behind Skeletal Remains with 20% of her Max HP. When the Skeletal Remains are destroyed, they stun the enemy that killed them for 1 turn.")]},
+ PS("Outsider's Fury","If there are no other copies of this unit on the team, she gains +3% Damage for each Desert Kingdom unit in battle (up to a maximum of +15% Damage).",{fury:1}),
+ PS("Bone Legacy","Upon death, this unit leaves behind Skeletal Remains with 20% of her Max HP. When the Skeletal Remains are destroyed, they stun the enemy that killed them for 1 turn.",{bone:1})]},
 {id:"cursed-mummy",n:"The Cursed Mummy",k:"desert",c:"Warrior",r:"Rare",ab:[
  BA("Dual Slash","This unit attacks a single target twice with its blades, dealing moderate damage with each strike.",{m:1,tg:"1",hit:2}),
  {t:"Active",n:"Blood Offering",cd:3,d:"Sacrifices 15% of its Max HP to force a random enemy to lose 15% of their Max HP (It cannot target bosses).",s:{tg:"self",sac:.15},adj:"It cannot be used if the sacrifice would kill this unit."},
- {t:"Super",n:"Petrifying Gaze",cd:5,d:"This unit's eyes glow intensely, petrifying 3 random enemies for 1 turn.",s:{m:0,tg:"r3",fx:[["petrify",1,1,0]]}},
+ {t:"Super",n:"Petrifying Gaze",cd:5,d:"This unit's eyes glow intensely, petrifying 3 random enemies for 1 turn.",s:{m:0,tg:"r3",rg:1,v:"gaze",fx:[["petrify",1,1,0]]}},
  PS("Sand Veil","When this unit's HP falls below 15%, it summons a sandstorm around itself for 1 turn, becoming Immune to all damage but unable to attack or use skills during this effect.",{sv:1}),
- PS("Tomb of Bones","Whenever this unit or any ally defeats an enemy, a Bone Pile is left on the battlefield. For each Bone Pile present, this unit gains +5% Attack and +5% Attack Speed (up to a maximum of +25%).")]},
+ PS("Tomb of Bones","Whenever this unit or any ally defeats an enemy, a Bone Pile is left on the battlefield. For each Bone Pile present, this unit gains +5% Attack and +5% Attack Speed (up to a maximum of +25%).",{tomb:1})]},
 {id:"king-of-corrupted-desert",n:"The King of Corrupted Desert",k:"plagues",c:"Warrior",r:"Boss",ab:[
- BA("Lunar Crescent Strike","Basic attack with his curved crescent spear that deals high damage and applies Weakness, reducing the target's Attack by 20% for 1 turn (100% chance).",{m:1.5,tg:"1",fx:[["weak",1,1,.2]]}),
+ BA("Lunar Crescent Strike","Basic attack with his curved crescent spear that deals high damage and applies Weakness, reducing the target's Attack by 20% for 1 turn (100% chance).",{m:1.5,tg:"1",v:"crescent",fx:[["weak",1,1,.2]]}),
  ECL,
- {t:"Super",n:"Corrupted Lunar Visage",cd:6,d:"Fires powerful corrupted lunar lasers from his eyes, dealing heavy damage to all enemies. Each enemy has a 25% chance to be Petrified for 1 turn.",s:{m:1.4,tg:"a",fx:[["petrify",.25,1,0]]},adj:"Cooldown raised from 5 to 6 so it does not line up with Lunar Eclipse. In the simulator heavy area damage is x1.4."},
+ {t:"Super",n:"Corrupted Lunar Visage",cd:6,d:"Fires powerful corrupted lunar lasers from his eyes, dealing heavy damage to all enemies. Each enemy has a 25% chance to be Petrified for 1 turn.",s:{m:1.2,tg:"a",rg:1,v:"laser",fx:[["petrify",.25,1,0]]},adj:"Cooldown raised from 5 to 6 so it does not line up with Lunar Eclipse. In the simulator heavy area damage is x1.2."},
  COR,
- PS("Desert Sovereign's Carpet","Increases base Speed by 15% and reduces all physical melee damage received by 15%.",{spd:.15,dr:.15})]},
+ PS("Desert Sovereign's Carpet","Increases base Speed by 15% and reduces all physical melee damage received by 15%.",{spd:.15,dr:.15,drn:"Desert Sovereign's Carpet"})]},
 {id:"corrupted-lunar-warrior",n:"The Corrupted Lunar Warrior",k:"plagues",c:"Warrior",r:"Common",ab:[
  BA("Lunar Slash","Attacks a single target with its corrupted sword, dealing moderate physical damage. Has a 20% chance to apply Corruption (deals 3% of the target's Max HP as damage over 2 turns).",{m:1,tg:"1",fx:[["dot",.2,2,.015]]}),ECL,COR]},
 {id:"corrupted-lunar-shooter",n:"The Corrupted Lunar Shooter",k:"plagues",c:"Shooter",r:"Common",ab:[
- BA("Lunar Arrow","Fires a corrupted arrow at a single target, dealing moderate physical damage. If the target is below 50% HP, the arrow deals +25% damage.",{m:1,tg:"1",rg:1,lb:[.5,.25]}),ECL,COR]},
+ BA("Lunar Arrow","Fires a corrupted arrow at a single target, dealing moderate physical damage. If the target is below 50% HP, the arrow deals +25% damage.",{m:1,tg:"1",rg:1,v:"arrow",lb:[.5,.25]}),ECL,COR]},
 {id:"corrupted-lunar-tank",n:"The Corrupted Lunar Tank",k:"plagues",c:"Tank",r:"Common",ab:[
- BA("Lunar Crush","Smashes a single target with a heavy corrupted hammer, dealing moderate physical damage and has 25% chance of applying Stun for 1 turn.",{m:1,tg:"1",fx:[["stun",.25,1,0]]}),ECL,COR]},
+ BA("Lunar Crush","Smashes a single target with a heavy corrupted hammer, dealing moderate physical damage and has 25% chance of applying Stun for 1 turn.",{m:1,tg:"1",v:"smash",fx:[["stun",.25,1,0]]}),ECL,COR]},
 {id:"corrupted-lunar-assassin",n:"The Corrupted Lunar Assassin",k:"plagues",c:"Assassin",r:"Common",ab:[
  BA("Lunar Strike","Quickly strikes a single target twice with corrupted daggers, dealing light physical damage with each hit. The second strike has a 30% chance to apply bleed (loses 3% of its Max Hp over 2 turns).",{m:.7,tg:"1",hit:2,fx:[["dot",.3,2,.015]]}),ECL,COR]},
 {id:"corrupted-lunar-mage",n:"The Corrupted Lunar Mage",k:"plagues",c:"Mage",r:"Common",ab:[
@@ -313,7 +330,7 @@ function vStats(){
  if(S.sub==='debuffs')h+=eff(DEBUFFS);
  if(S.sub==='special')h+=SPECIAL.map(x=>`<div class="card"><b>${x[0]}</b><div>${x[1]}</div></div>`).join('');
  if(S.sub==='keywords')h+='<p class="muted" style="margin-bottom:10px">Draft definitions of terms used in skill descriptions. Edit freely.</p>'+KW.map(x=>`<div class="card"><b>${x[0]}</b><div>${x[1]}</div></div>`).join('');
- if(S.sub==='rarity')h+=`<div class="card">Levels go from 1 to ${MAXLV}. HP, Physical Attack and Magic Attack grow +5% per level, then the rarity multiplier below is applied. Boss units also get +50% HP. (Draft numbers.)</div>`+RARS.map(r=>`<div class="card" style="border-left:6px solid ${r[1]}"><b>${r[0]}</b><span class="tag">x${r[2]}</span></div>`).join('');
+ if(S.sub==='rarity')h+=`<div class="card">Levels start at 1. Maximum level depends on rarity (see below). HP, Physical Attack and Magic Attack grow +3% per level, then the rarity multiplier below is applied. Boss units also get +20% HP. In the Play tab everyone fights at the same level (max 50), so levels only change stats. (Draft numbers.)</div>`+RARS.map(r=>`<div class="card" style="border-left:6px solid ${r[1]}"><b>${r[0]}</b><span class="tag">x${r[2]}</span><span class="tag">max level ${LVMX[r[0]]}</span></div>`).join('');
  return h}
 
 function tileK(k){const n=CH.filter(c=>c.k===k.id).length;return `<button class="tile" data-kid="${k.id}" style="--ac:${k.c}"><span class="emb">${emb(k)}${k.k?`<img class="ico badge" src="${ci(k.k)}" alt="">`:''}</span><b>${k.n}</b><span class="muted">${n} character${n===1?'':'s'}</span></button>`}
@@ -329,12 +346,12 @@ const rb=r=>{const x=RARS.find(a=>a[0]===r);return !x?'':x[0]==='Boss'?'linear-g
 const rs=c=>c.r?` style="--rbg:${rb(c.r)}"`:'';
 const getA=c=>c.ab||(c.h&&HEROES[c.id]?HEROES[c.id].a.filter(Boolean):[]);
 const aIc=(c,i)=>c.ab&&ICONS.a[c.id]?ICONS.a[c.id][i]:'';
-function statsAt(c,lv){const s=stats(c),r=RARS.find(x=>x[0]===c.r),f=(1+.05*(lv-1))*(r?r[2]:1);['hp','pa','ma'].forEach(k=>{s[k]=Math.round(s[k]*f*(k==='hp'&&c.r==='Boss'?1.5:1))});return s}
+function statsAt(c,lv){const s=stats(c),r=RARS.find(x=>x[0]===c.r),f=(1+.03*(lv-1))*(r?r[2]:1);['hp','pa','ma'].forEach(k=>{s[k]=Math.round(s[k]*f*(k==='hp'&&c.r==='Boss'?1.2:1))});return s}
 function tbl(c){const s=statsAt(c,S.lv);return `<div class="cz" style="color:var(--gd);margin-bottom:4px">${esc(c.n)} — ${c.c} · Lv ${S.lv}</div><table>${G.map(x=>`<tr><td>${x[1]}</td><td class="v">${fmt(x[0],s[x[0]])}</td></tr>`).join('')}</table>`}
 function vChar(k){
- const c=CH.find(x=>x.id===S.cid),A=getA(c),lore=c.h&&HEROES[c.id]?HEROES[c.id].lore:'',ic=c.c?ci(c.c):'';
+ const c=CH.find(x=>x.id===S.cid),A=getA(c),mx=maxLv(c),lore=c.h&&HEROES[c.id]?HEROES[c.id].lore:'',ic=c.c?ci(c.c):'';if(S.lv>mx)S.lv=mx;
  let h=`<button class="back-btn" data-cid="">← ${k.n}</button><div class="view" style="--ac:${k.c}"><div><div class="flip ${S.flip?'on':''}"><div class="fi"><div class="face fr"${rs(c)}><div class="art" style="position:absolute;inset:0;aspect-ratio:auto;background-image:url(${ic})"><img src="images/${c.id}.webp" alt="" onerror="this.style.display='none'"></div><div class="nm">${ic?`<img class="ico" src="${ic}" alt="">`:''}<div><div class="cz" style="font-weight:800">${esc(c.n)}</div><div class="muted">${c.c||'NPC'}${c.r?' · '+c.r:''} · ${k.n}</div></div></div></div><div class="face bk"${rs(c)} id="bk">${c.c?tbl(c):'<p class="muted">NPCs have no combat stats.</p>'}</div></div></div>`;
- if(c.c)h+=`<button class="flipbtn" data-flip="1">${S.flip?'Show art':'Show stats'}</button><div class="card" style="margin-top:12px"><label>Level <b id="lvn">${S.lv}</b> / ${MAXLV}<input type="range" id="lv" min="1" max="${MAXLV}" value="${S.lv}" style="width:100%"></label></div>`;
+ if(c.c)h+=`<button class="flipbtn" data-flip="1">${S.flip?'Show art':'Show stats'}</button><div class="card" style="margin-top:12px"><label>Level <b id="lvn">${S.lv}</b> / ${mx}<input type="range" id="lv" min="1" max="${mx}" value="${S.lv}" style="width:100%"></label></div>`;
  h+='</div><div>';
  if(c.c){h+=`<h3 style="margin-top:0">Abilities</h3><div class="abs">${A.map((a,i)=>{const im=aIc(c,i);return `<button class="ab" data-ab="${i}" aria-pressed="${S.ab===i}">${im?`<img src="${im}" alt="" style="width:52px;height:52px;border-radius:50%;display:block;margin:0 auto 4px;outline:2px solid ${S.ab===i?'var(--gd)':'transparent'}">`:`<i>${a.t.slice(0,3).toUpperCase()}</i>`}${esc(a.n)}</button>`}).join('')}</div>`;
   const a=A[S.ab];
@@ -343,90 +360,191 @@ function vChar(k){
   if(lore)h+=`<h3>About</h3><p>${esc(lore)}</p>`}
  return h+'</div></div>'}
 
-/* ================= PLAY (prototype battle simulator) ================= */
-const P={ph:'setup',A:['desert-elite','sand-master','outlaw-sniper'],B:['corrupted-lunar-warrior','corrupted-lunar-mage','corrupted-lunar-tank'],lv:1,u:[],q:[],cur:null,arm:null,ins:null,log:[],rd:0,an:null,win:0,auto:false};
-const SN={weak:'Weak',blind:'Blind',slow:'Slow',fear:'Fear',stun:'Stun',petrify:'Stone',dot:'DoT',eva:'Evade',atk:'Atk+',spd:'Spd+',defdown:'Def-',imm:'Immune',rest:'Rest',mark:'Mark',asc:'Ascended'};
+/* ================= PLAY (battle simulator) ================= */
+const P={ph:'setup',A:['desert-elite','sand-master','outlaw-sniper','desert-cat','cursed-mummy'],B:['corrupted-lunar-warrior','corrupted-lunar-shooter','corrupted-lunar-tank','corrupted-lunar-assassin','corrupted-lunar-mage'],lv:50,u:[],q:[],cur:null,arm:null,ins:null,log:[],rd:0,win:0,auto:false,busy:false,mus:true,sfxOn:true,rn:0};
+let EV=[],FAST=false;
+const SN={weak:'Weakened',blind:'Blinded',slow:'Slowed',fear:'Afraid',stun:'Stunned',petrify:'Petrified',dot:'Corrupted',eva:'Evasion up',atk:'Attack up',spd:'Speed up',defdown:'Defense down',imm:'Immune',rest:'Reloading',mark:'Marked',asc:'Ascended'};
+const SYM={weak:'⬇️',blind:'👁️',slow:'🐌',fear:'😱',stun:'💫',petrify:'🗿',dot:'🩸',eva:'💨',atk:'⚔️',spd:'⚡',defdown:'🔻',imm:'✨',rest:'💤',mark:'🎯',asc:'🦅'};
 const DEB=['weak','blind','slow','fear','stun','petrify','dot','defdown','mark'];
-const SH=n=>n.replace(/^The /,'');
-const SIMC=()=>CH.filter(c=>c.ab&&c.ab.some(a=>a.s));
+const TAGC={Mark:'#d28bff',Lunar:'#b9a6ff',dot:'#ff8a8a',Veil:'#e8c46a',crit:'#ffd23f',n:'#ff6b6b'};
+const SH=n=>n.replace(/^The /,'').replace(/^Corrupted /,'');
+const ALLY=()=>CH.filter(c=>c.k==='desert'&&c.ab),FOE=()=>CH.filter(c=>c.k==='plagues'&&c.ab);
+const lvOf=c=>Math.min(P.lv,maxLv(c));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
-const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
 const sv=(u,k)=>u.st.filter(x=>x.k===k).reduce((a,x)=>a+x.v,0);
 const has=(u,k)=>u.st.some(x=>x.k===k);
-const alive=t=>P.u.filter(u=>u.team===t&&u.hp>0);
+const alive=t=>P.u.filter(u=>u.team===t&&u.hp>0&&!u.rem);
 const foes=u=>alive(u.team===1?2:1);
 const lowOf=u=>u.p.low&&u.hp/u.mh<u.p.low.hp?u.p.low:null;
-const plog=t=>{P.log.unshift(t);if(P.log.length>60)P.log.pop()};
-const fl=(u,t,c)=>{(P.an=P.an||{a:null,h:[],f:[]}).f.push([u.id,t,c||'#ff6b6b'])};
-function mkU(c,team,i){const p={};c.ab.forEach(a=>a.p&&Object.assign(p,a.p));const s=statsAt(c,P.lv);return{id:team+'-'+i,c,team,n:SH(c.n),s,hp:s.hp,mh:s.hp,mh0:s.hp,gain:0,bar:0,st:[],cd:c.ab.map(()=>0),p,boss:c.r==='Boss',orb:0,ab:c.ab}}
-function spd(u){let b=u.p.spd||0;P.u.forEach(a=>{if(a.team===u.team&&a.p.allySpd)b+=a.p.allySpd});const l=lowOf(u);if(l)b+=l.spd||0;return u.s.sp*Math.max(.2,1+b+sv(u,'spd')-sv(u,'slow'))}
-function addSt(u,k,d,v,src){if(u.boss&&DEB.includes(k))v*=.6;if(src===u)d++;u.st.push({k,d,v})}
-function hurt(t,d,cr,tru){if(has(t,'imm')){fl(t,'Immune','#9bb');return 0}let a=0;if(!tru&&t.bar>0){a=Math.min(t.bar,d);t.bar-=a}t.hp-=d-a;fl(t,d+(cr?'!':''));if(t.hp<=0){t.hp=0;plog(t.n+' is defeated.')}else if(t.p.sv&&!t.svu&&t.hp/t.mh<.15){t.svu=1;t.st.push({k:'imm',d:2,v:0},{k:'rest',d:2,v:0});plog(t.n+' hides in a sandstorm!')}return d}
-function dmg(u,t,sp){const ty=sp.ty==='m'?'m':'p';
- if(!sp.nm){const ac=u.s.ac/100*(1-sv(u,'blind')),ev=t.s.ev/100+sv(t,'eva');if(Math.random()>Math.max(.05,Math.min(1,ac-ev))){fl(t,'Miss','#9bb');return 0}}
- const sb=u.p.sb?Math.min(.15,.05*alive(u.team).filter(x=>x!==u&&x.c.c==='Shooter').length):0,lo=lowOf(u);
- let d=(ty==='m'?u.s.ma:u.s.pa)*sp.m*(1+sv(u,'atk')+sb+(lo?lo.dmg||0:0))*(1-Math.min(.9,sv(u,'weak')));
+const ev=o=>EV.push(o);
+const lg=t=>ev({k:'log',t});
+const chipsH=u=>u.st.map(x=>`<span title="${SN[x.k]||x.k}">${SYM[x.k]||'•'}${x.d>1?x.d:''}</span>`).join('')+(u.orb?'<span title="Lunar Orb">🌑</span>':'')+(u.piles?`<span title="Bone Piles">🦴${u.piles}</span>`:'')+(u.atkRed?`<span title="Attack reduced">↓${Math.round(u.atkRed*100)}%</span>`:'')+(u.veilH?`<span title="Max HP eroded">☠${Math.round(u.veilH*100)}%</span>`:'');
+const clsOf=u=>(has(u,'petrify')?'pet ':'')+(has(u,'imm')?'imm ':'')+(u.orb>0?'orbd':'');
+const sync=u=>ev({k:'chips',u:u.id,h:chipsH(u),c:clsOf(u)});
+function mkU(c,team,i){const p={};c.ab.forEach(a=>a.p&&Object.assign(p,a.p));const s=statsAt(c,lvOf(c));return{id:team+'-'+i,c,team,n:SH(c.n),s,hp:s.hp,mh:s.hp,mh0:s.hp,gain:0,legG:0,legS:0,bar:0,st:[],cd:c.ab.map(()=>0),p,boss:c.r==='Boss',orb:0,piles:0,atkRed:0,veilH:0,ab:c.ab,dh:s.hp,dm:s.hp,db:0,dd:false,chipsH:'',cls:''}}
+function spd(u){let b=(u.p.spd||0)+(u.legS||0)+(u.p.tomb?.05*u.piles:0);P.u.forEach(a=>{if(a.team===u.team&&a.p.allySpd&&!a.rem)b+=a.p.allySpd});const l=lowOf(u);if(l)b+=l.spd||0;return u.s.sp*Math.max(.2,1+b+sv(u,'spd')-sv(u,'slow'))}
+function addSt(u,k,d,v,src){if(u.boss&&DEB.includes(k))v*=.6;if(src===u)d++;u.st.push({k,d,v});sync(u)}
+const eff=(u,i)=>{const s=u.ab[i].s;return s&&s.emp&&has(u,'asc')?Object.assign({},s,s.emp):s};
+const canUse=(u,i)=>{const a=u.ab[i];return !!a.s&&u.cd[i]===0&&!(a.s.sac&&u.hp<=a.s.sac*u.mh)};
+const needT=(u,i)=>{const s=eff(u,i);return !!s&&s.tg==='1'};
+function hurt(t,d,o){o=o||{};
+ if(has(t,'imm')){ev({k:'imm',u:t.id});lg(t.n+' is Immune and takes no damage.');return 0}
+ let a=0;if(!o.tru&&t.bar>0){a=Math.min(t.bar,d);t.bar-=a}
+ t.hp-=d-a;
+ ev({k:'dmg',u:t.id,v:d,cr:o.cr,tag:o.tag||'',hp:Math.max(0,t.hp),bar:t.bar,mh:t.mh,ab:a,f:FAST});
+ lg(`${t.n} takes ${d} damage${o.cr?' (critical hit)':''}${o.tag?' ('+o.tag+')':''}${a?', '+a+' absorbed by the Barrier':''}.`);
+ if(t.hp<=0)die(t,o.src);
+ else{
+  if(t.p.low&&!t.lowOn&&t.hp/t.mh<t.p.low.hp){t.lowOn=1;lg(`Passive · Lunar Corruption: ${t.n} activates its Lunar Core (+10% Speed, +10% Corrupted Lunar Damage).`);ev({k:'fx',u:t.id,f:'lunar'})}
+  if(t.p.sv&&!t.svu&&t.hp/t.mh<.15){t.svu=1;t.st.push({k:'imm',d:2,v:0},{k:'rest',d:2,v:0});sync(t);lg(`Passive · Sand Veil: ${t.n} is wrapped in a sandstorm (Immune, cannot act for 1 turn).`);ev({k:'fx',u:t.id,f:'sand'})}}
+ return d}
+function die(t,src){t.hp=0;ev({k:'dead',u:t.id});lg(t.n+' is defeated.');
+ if(src&&!t.rem)P.u.filter(x=>x.team===src.team&&x.hp>0&&x.p.tomb).forEach(x=>{x.piles=Math.min(5,x.piles+1);lg(`Passive · Tomb of Bones: a Bone Pile appears. ${x.n} now has +${x.piles*5}% Attack and Speed.`);sync(x)});
+ if(t.rem&&src&&src.hp>0){lg(`The Skeletal Remains burst and stun ${src.n} for 1 turn.`);addSt(src,'stun',1,0,t)}
+ if(t.p.bone&&!t.rem){const r={id:'r'+(++P.rn),c:t.c,team:t.team,n:'Skeletal Remains',s:Object.assign({},t.s,{sp:0,ev:0,pd:0,md:0}),hp:Math.round(.2*t.mh0),mh:Math.round(.2*t.mh0),mh0:0,gain:0,legG:0,legS:0,bar:0,st:[],cd:[],p:{},boss:false,orb:0,piles:0,atkRed:0,veilH:0,ab:[],rem:1,dd:false,chipsH:'',cls:''};r.dh=r.hp;r.dm=r.mh;r.db=0;P.u.push(r);ev({k:'spawn',u:r.id,html:uc(r),team:r.team});lg(`Passive · Bone Legacy: ${t.n} leaves Skeletal Remains (${r.hp} HP). Destroying them stuns the attacker.`)}
+ if(!t.rem)P.u.filter(x=>x.team===t.team&&x.hp>0&&x.p.leg).forEach(x=>{const n=P.u.filter(y=>y.team===x.team&&y.hp<=0&&!y.rem).length,b=Math.min(.1,.02*n),g=b*x.mh0-x.legG;if(g>0){x.legG+=g;x.legS=b;x.mh+=g;x.hp+=g;ev({k:'hpset',u:x.id,hp:x.hp,bar:x.bar,mh:x.mh});lg(`Passive · Eagle's Legacy: ${x.n} gains +${Math.round(b*100)}% Max HP and Speed (${n} fallen ally${n>1?'s':''}).`);ev({k:'fx',u:x.id,f:'buff'})}})}
+function dmg(u,t,sp,vis){const ty=sp.ty==='m'?'m':'p';
+ ev({k:'atk',a:u.id,t:t.id,v:vis,f:FAST});
+ if(!sp.nm){const ac=u.s.ac/100*(1-sv(u,'blind')),e2=t.s.ev/100+sv(t,'eva');if(Math.random()>Math.max(.05,Math.min(1,ac-e2))){ev({k:'miss',u:t.id});lg(`${u.n}'s attack misses ${t.n}.`);return 0}}
+ const sb=u.p.sb?Math.min(.15,.05*P.u.filter(x=>x!==u&&x.team===u.team&&x.hp>0&&x.c.c==='Shooter').length):0;
+ const fu=u.p.fury&&!P.u.some(x=>x!==u&&x.team===u.team&&x.hp>0&&x.c.id===u.c.id)?Math.min(.15,.03*P.u.filter(x=>x.hp>0&&!x.rem&&x.c.k==='desert').length):0;
+ const lo=lowOf(u);
+ let d=(ty==='m'?u.s.ma:u.s.pa)*sp.m*(1+sv(u,'atk')+sb+fu+(u.p.tomb?.05*u.piles:0))*(1-Math.min(.9,sv(u,'weak')))*(1-(u.atkRed||0));
  if(sp.lb&&t.hp/t.mh<sp.lb[0])d*=1+sp.lb[1];
  const cr=Math.random()<u.s.cc/100;if(cr)d*=u.s.cd/100;
  d*=1-Math.max(0,(ty==='m'?t.s.md:t.s.pd)/100*(1-(sp.pen||0))*(1-sv(t,'defdown')));
- if(!sp.rg&&t.p.dr)d*=1-t.p.dr;
- const mk=t.st.find(x=>x.k==='mark');if(mk&&d>0){d*=1.25;t.st.splice(t.st.indexOf(mk),1)}
- return hurt(t,Math.max(1,Math.round(d)),cr)}
-function use(u,i,tg){const a=u.ab[i];let s=a.s;if(s.emp&&has(u,'asc'))s=Object.assign({},s,s.emp);u.cd[i]=a.cd?a.cd+1:0;
- const an=P.an;an.a=u.id;plog(u.n+' uses '+a.n+'.');
- const T=s.tg==='1'?[tg]:s.tg==='a'?foes(u):s.tg==='r3'?shuf(foes(u)).slice(0,3):[];
- T.forEach(t=>{an.h.push(t.id);let tot=0;if(s.m)for(let k=0;k<(s.hit||1);k++)if(t.hp>0)tot+=dmg(u,t,s);
-  if(s.bd&&tot)u.bar+=tot*s.bd;
-  (s.fx||[]).forEach(f=>{if(t.hp>0&&Math.random()<f[1]*(t.boss?.6:1))addSt(t,f[0],f[2],f[3],u)});
-  if(s.mk&&t.hp>0){addSt(t,'slow',3,.15,u);t.st.push({k:'mark',d:3,v:u.s.ma})}});
- if(s.tru){const t=pick(foes(u));if(t){an.h.push(t.id);hurt(t,Math.max(1,Math.round(s.tru*t.mh)),false,true)}}
- if(s.hpUp){const g=Math.max(0,Math.min(s.hpUp*u.mh0,s.cap*u.mh0-u.gain));u.mh+=g;u.hp+=g;u.gain+=g}
- if(s.bar)u.bar=Math.min(u.bar+s.bar*u.mh,(s.bcap||9)*u.mh);
- (s.self||[]).forEach(f=>addSt(u,f[0],f[1],f[2],u));
- if(s.orb){u.bar+=.2*u.mh;u.orb=3}
- if(s.sac){const l=Math.round(s.sac*u.mh);u.hp-=l;fl(u,l);const t=pick(foes(u).filter(x=>!x.boss));if(t){an.h.push(t.id);hurt(t,Math.round(.15*t.mh),false,true)}}
- if(s.hg)shuf(P.u.filter(x=>x.hp>0)).slice(0,3).forEach(x=>{x.cd=x.cd.map((c,j)=>x.team===u.team?Math.max(0,c-1):(x.ab[j].cd?c+1:c))})}
-function begin(u){u.st.filter(x=>x.k==='dot').forEach(x=>hurt(u,Math.max(1,Math.round(x.v*u.mh)),false,true));
+ if(!sp.rg&&t.p.dr){d*=1-t.p.dr;lg(`Passive · ${t.p.drn}: ${t.n} takes ${Math.round(t.p.dr*100)}% less melee damage.`)}
+ const mk=t.st.find(x=>x.k==='mark');
+ const main=hurt(t,Math.max(1,Math.round(d)),{cr,src:u});
+ if(lo&&lo.dmg&&main>0&&t.hp>0)hurt(t,Math.max(1,Math.round(main*lo.dmg)),{tag:'Lunar',src:u});
+ if(mk&&main>0&&t.hp>0){t.st.splice(t.st.indexOf(mk),1);sync(t);lg(`Master's Mark explodes on ${t.n}!`);hurt(t,Math.max(1,Math.round(main*.25)),{tag:'Mark',src:u})}
+ return main}
+function use(u,i,tg){const a=u.ab[i],s=eff(u,i);u.cd[i]=a.cd?a.cd+1:0;
+ lg(`${u.n} uses ${a.n}${s.tg==='1'&&tg?' on '+tg.n:''}.`);ev({k:'cast',a:u.id});
+ const vis=s.v||(s.rg?'bolt':'slash');
+ const hit=t=>{let tot=0;if(s.m){for(let k=0;k<(s.hit||1);k++)if(t.hp>0)tot+=dmg(u,t,s,vis)}else if(s.tg!=='self')ev({k:'atk',a:u.id,t:t.id,v:vis,f:FAST});
+  if(s.bd&&tot){const b=Math.round(tot*s.bd);u.bar+=b;ev({k:'bar',u:u.id,bar:u.bar,mh:u.mh});lg(`${u.n} gains a ${b} Barrier.`)}
+  (s.fx||[]).forEach(f=>{if(t.hp>0&&Math.random()<f[1]*(t.boss?.6:1)){addSt(t,f[0],f[2],f[3],u);lg(`${t.n} is ${SN[f[0]]} for ${f[2]} turn${f[2]>1?'s':''}.`);ev({k:'fx',u:t.id,f:f[0]})}});
+  if(s.mk&&t.hp>0){addSt(t,'slow',3,.15,u);t.st.push({k:'mark',d:3,v:u.s.ma});sync(t);lg(`${t.n} is Marked for 3 turns (Speed -15%).`);ev({k:'fx',u:t.id,f:'mark'})}};
+ if(s.tg==='1'){if(tg)hit(tg)}
+ else if(s.tg==='r3'){for(let k=0;k<3;k++){const t=pick(foes(u));if(!t)break;hit(t)}}
+ else if(s.tg==='a'){const L=foes(u);ev({k:'aoe',a:u.id,v:vis,ts:L.map(x=>x.id)});FAST=true;L.forEach(hit);FAST=false}
+ if(s.tru){const t=pick(foes(u));if(t){ev({k:'atk',a:u.id,t:t.id,v:'curse',f:1});lg(`True damage: ${u.n}'s dagger finds ${t.n}.`);hurt(t,Math.max(1,Math.round(s.tru*t.mh)),{tru:1,tag:'true',src:u})}}
+ if(s.hpUp){const g=Math.max(0,Math.min(s.hpUp*u.mh0,s.cap*u.mh0-u.gain));if(g>0){u.mh+=g;u.hp+=g;u.gain+=g;ev({k:'hpset',u:u.id,hp:u.hp,bar:u.bar,mh:u.mh});lg(`${u.n} gains +${Math.round(g)} Max HP.`);ev({k:'fx',u:u.id,f:'buff'})}}
+ if(s.bar){const b=Math.min(s.bar*u.mh,(s.bcap||9)*u.mh-u.bar);if(b>0){u.bar+=b;ev({k:'bar',u:u.id,bar:u.bar,mh:u.mh});lg(`${u.n} raises a Barrier of ${Math.round(b)}.`);ev({k:'fx',u:u.id,f:'shield'})}}
+ (s.self||[]).forEach(f=>{addSt(u,f[0],f[1],f[2],u);lg(`${u.n} gains ${SN[f[0]]} (${f[1]} turn${f[1]>1?'s':''}).`);ev({k:'fx',u:u.id,f:f[0]==='rest'?'rest':'buff'})});
+ if(s.orb){const b=Math.round(.2*u.mh);u.bar+=b;u.orb=3;ev({k:'bar',u:u.id,bar:u.bar,mh:u.mh});sync(u);lg(`${u.n} creates a Black Lunar Orb (Barrier ${b}).`);ev({k:'fx',u:u.id,f:'lunar'})}
+ if(s.sac){const l=Math.round(s.sac*u.mh);u.hp-=l;ev({k:'hpset',u:u.id,hp:u.hp,bar:u.bar,mh:u.mh});lg(`${u.n} sacrifices ${l} HP.`);const t=pick(foes(u).filter(x=>!x.boss));if(t){ev({k:'atk',a:u.id,t:t.id,v:'curse',f:1});hurt(t,Math.round(.15*t.mh),{tru:1,tag:'true',src:u})}}
+ if(s.hg){const L=[],all=P.u.filter(x=>x.hp>0&&!x.rem);for(let k=0;k<3&&all.length;k++)L.push(pick(all));L.forEach(x=>{const al=x.team===u.team;x.cd=x.cd.map((c,j)=>al?Math.max(0,c-1):(x.ab[j].cd?c+1:c));ev({k:'fx',u:x.id,f:'hourglass'});lg(`Magic Hourglass lands on ${x.n}: cooldowns ${al?'reduced':'increased'} by 1.`)})}}
+function veils(u){
+ if(u.p.veilE){const t=foes(u).sort((a,b)=>Math.max(b.s.pa,b.s.ma)-Math.max(a.s.pa,a.s.ma))[0];if(t&&t.veilH<.16){const d=Math.min(.04,.16-t.veilH);t.veilH+=d;const x=Math.max(1,Math.round(d*t.mh0));t.mh-=x;lg(`Passive · Veil of Erosion: ${t.n} (highest Attack) loses ${Math.round(d*100)}% Max HP (${Math.round(t.veilH*100)}% of 16%).`);hurt(t,x,{tru:1,tag:'Veil',src:u});sync(t)}}
+ if(u.p.veilF){const t=foes(u).sort((a,b)=>b.mh-a.mh)[0];if(t&&t.atkRed<.16){const d=Math.min(.04,.16-t.atkRed);t.atkRed+=d;lg(`Passive · Veil of Frailty: ${t.n} (highest Max HP) loses ${Math.round(d*100)}% Attack (${Math.round(t.atkRed*100)}% of 16%).`);ev({k:'fx',u:t.id,f:'weak'});sync(t)}}}
+function begin(u){
+ u.st.filter(x=>x.k==='dot').forEach(x=>{if(u.hp>0)hurt(u,Math.max(1,Math.round(x.v*u.mh)),{tru:1,tag:'dot'})});
  if(u.hp<=0)return false;
- if(u.orb>0){u.orb--;if(u.orb===2){addSt(u,'atk',2,.1,u);addSt(u,'spd',2,.1,u)}if(u.orb===0){plog(u.n+"'s orb explodes!");foes(u).forEach(t=>{P.an.h.push(t.id);dmg(u,t,{m:1,ty:'m',nm:1,rg:1});addSt(t,'weak',1,.15,u)})}}
- if(has(u,'stun')||has(u,'petrify')||has(u,'rest')){plog(u.n+' cannot act.');return false}
- const f=sv(u,'fear');if(f&&Math.random()<f){plog(u.n+' is gripped by fear!');return false}
+ if(u.p.veilE||u.p.veilF)veils(u);
+ if(u.orb>0){u.orb--;if(u.orb===2){addSt(u,'atk',2,.1,u);addSt(u,'spd',2,.1,u);lg(`Lunar Orb: ${u.n} gains +10% Attack and Speed for 2 turns.`)}
+  if(u.orb===0){lg(`${u.n}'s Lunar Orb explodes!`);const L=foes(u);ev({k:'aoe',a:u.id,v:'orb',ts:L.map(x=>x.id)});FAST=true;L.forEach(t=>{dmg(u,t,{m:1,ty:'m',nm:1,rg:1},'orb');addSt(t,'weak',1,.15,u);lg(`${t.n} deals 15% less damage for 1 turn.`)});FAST=false;sync(u)}}
+ if(u.hp<=0)return false;
+ if(has(u,'stun')||has(u,'petrify')||has(u,'rest')){lg(`${u.n} cannot act this turn.`);return false}
+ const f=sv(u,'fear');if(f&&Math.random()<f){lg(`${u.n} is gripped by fear and loses the action.`);return false}
  return true}
-function tick(u){u.st.forEach(x=>x.d--);u.st.filter(x=>x.d<=0&&x.k==='mark').forEach(x=>{if(u.hp>0)hurt(u,Math.max(1,Math.round(.3*x.v)),false,true)});u.st=u.st.filter(x=>x.d>0);u.cd=u.cd.map(c=>Math.max(0,c-1))}
-function newRound(){P.rd++;P.q=P.u.filter(u=>u.hp>0).sort((a,b)=>spd(b)-spd(a));plog('— Round '+P.rd+' —')}
-function chk(){const a=alive(1).length,b=alive(2).length;if(a&&b&&P.rd<150)return 0;P.ph='end';P.win=a&&b?0:a?1:b?2:0;P.cur=null;P.auto=false;return 1}
-function nextTurn(){for(;;){if(chk())return;const u=P.q.shift();if(!u){newRound();continue}if(u.hp<=0)continue;P.cur=u;P.ins=u.id;if(begin(u)){chk();return}if(u.hp>0)tick(u);P.cur=null}}
+function tick(u){u.st.forEach(x=>x.d--);u.st.filter(x=>x.d<=0&&x.k==='mark').forEach(x=>{if(u.hp>0){lg(`The Mark on ${u.n} expires and explodes.`);hurt(u,Math.max(1,Math.round(.3*x.v)),{tru:1,tag:'Mark'})}});u.st=u.st.filter(x=>x.d>0);u.cd=u.cd.map(c=>Math.max(0,c-1));sync(u)}
+function newRound(){P.rd++;P.q=P.u.filter(u=>u.hp>0&&!u.rem).sort((a,b)=>spd(b)-spd(a));lg(`—— Round ${P.rd} ——`)}
+function chk(){const a=alive(1).length,b=alive(2).length;if(a&&b&&P.rd<150)return 0;P.ph='end';P.win=a&&b?0:a?1:b?2:0;P.cur=null;P.auto=false;lg(P.win===1?'Victory! The bottom team wins.':P.win===2?'The top team wins.':'Draw.');ev({k:'sfx',n:P.win===1?'win':'lose'});return 1}
+function nextTurn(){for(;;){if(chk())return;const u=P.q.shift();if(!u){newRound();continue}if(u.hp<=0)continue;P.cur=u;P.ins=u.id;ev({k:'turn',u:u.id});lg(`${u.n}'s turn.`);if(begin(u)){chk();return}if(u.hp>0)tick(u);P.cur=null}}
 function advance(){const u=P.cur;if(u&&u.hp>0)tick(u);P.cur=null;P.arm=null;nextTurn()}
-function startBattle(){P.u=[];['A','B'].forEach((k,ti)=>P[k].forEach((id,i)=>P.u.push(mkU(CH.find(c=>c.id===id),ti+1,i))));P.rd=0;P.q=[];P.log=[];P.ph='battle';P.win=0;P.arm=null;P.an={a:null,h:[],f:[]};nextTurn()}
-const canUse=(u,i)=>{const a=u.ab[i];return !!a.s&&u.cd[i]===0&&!(a.s.sac&&u.hp<=a.s.sac*u.mh)};
-const needT=a=>!!a.s&&a.s.tg==='1';
+function startPassives(){const seen={};P.u.forEach(u=>{u.ab.forEach(a=>{if(a.p&&!seen[u.team+a.n]){seen[u.team+a.n]=1;lg(`Passive · ${a.n} (${u.n}): ${a.d}`)}});
+ if(u.p.allySpd)lg(`Passive · Desert Winds: all allies of ${u.n} start with +${Math.round(u.p.allySpd*100)}% Speed.`);
+ if(u.p.sb){const n=P.u.filter(x=>x!==u&&x.team===u.team&&x.c.c==='Shooter').length;lg(`Passive · Shooter Bond: ${u.n} has +${Math.min(15,5*n)}% Attack (${n} allied Shooter${n===1?'':'s'}).`)}
+ if(u.p.fury){const alone=!P.u.some(x=>x!==u&&x.team===u.team&&x.c.id===u.c.id),n=P.u.filter(x=>x.c.k==='desert'&&!x.rem).length;lg(`Passive · Outsider's Fury: ${u.n} ${alone?'has +'+Math.min(15,3*n)+'% Damage ('+n+' Desert Kingdom units)':'is not alone on the team, so it is inactive'}.`)}})}
+function startBattle(){P.u=[];P.rn=0;['A','B'].forEach((k,ti)=>{const cnt={},seen={};P[k].forEach(id=>cnt[id]=(cnt[id]||0)+1);P[k].forEach((id,i)=>{const u=mkU(CH.find(c=>c.id===id),ti+1,i);seen[id]=(seen[id]||0)+1;if(cnt[id]>1)u.n+=' '+'ABCDE'[seen[id]-1];P.u.push(u)})});
+ P.rd=0;P.q=[];P.log=[];P.ph='battle';P.win=0;P.arm=null;P.cur=null;EV=[];FAST=false;
+ lg(`Battle start. Everyone fights at level ${P.lv}.`);startPassives();nextTurn();draw();flush()}
 const tgOK=t=>P.arm!==null&&!!P.cur&&t.hp>0&&t.team!==P.cur.team;
-function doUse(i,t){P.an={a:null,h:[],f:[]};use(P.cur,i,t);advance();draw();anim()}
-function autoTurn(){const u=P.cur;if(!u)return;const ok=u.ab.map((a,i)=>i).filter(i=>canUse(u,i)),sp=ok.filter(i=>u.ab[i].cd),i=sp.length&&Math.random()<.65?pick(sp):ok[0],a=u.ab[i];doUse(i,needT(a)?foes(u).sort((x,y)=>x.hp-y.hp)[0]:null)}
-function autoLoop(){if(!P.auto||P.ph!=='battle'||S.tab!=='play'){P.auto=false;return}autoTurn();setTimeout(autoLoop,900)}
-function anim(){const a=P.an;if(!a)return;const q=id=>document.querySelector('[data-u="'+id+'"]');const e=q(a.a);if(e)e.classList.add('atk');a.h.forEach(id=>{const x=q(id);if(x)x.classList.add('hit')});a.f.forEach(f=>{const x=q(f[0]);if(x){const s=document.createElement('span');s.className='fl';s.textContent=f[1];s.style.color=f[2];x.appendChild(s)}});P.an=null}
-function playClick(b){const d=b.dataset;
- if(d.pk){const p=d.pk.split(':'),L=P[p[0]],j=L.indexOf(p[1]);if(j>=0)L.splice(j,1);else if(L.length<3)L.push(p[1])}
- else if(d.start){if(P.A.length&&P.B.length)startBattle()}
- else if(d.u){const t=P.u.find(x=>x.id===d.u);if(P.cur&&tgOK(t)&&needT(P.cur.ab[P.arm])){doUse(P.arm,t);return}P.ins=d.u}
- else if(d.ac!==undefined){const i=+d.ac;if(!P.cur||!canUse(P.cur,i))return;if(needT(P.cur.ab[i]))P.arm=P.arm===i?null:i;else{doUse(i);return}}
+async function doUse(i,t){if(P.busy)return;EV=[];use(P.cur,i,t);advance();await flush()}
+function autoTurn(){const u=P.cur;if(!u||P.busy)return;const ok=u.ab.map((a,i)=>i).filter(i=>canUse(u,i)),sp=ok.filter(i=>u.ab[i].cd),i=sp.length&&Math.random()<.65?pick(sp):ok[0];doUse(i,needT(u,i)?foes(u).sort((x,y)=>x.hp-y.hp)[0]:null)}
+function autoLoop(){if(!P.auto||P.ph!=='battle'||S.tab!=='play'){if(P.ph!=='battle')P.auto=false;return}if(!P.busy)autoTurn()}
+/* ---------- playback: visuals + sound ---------- */
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const arenaEl=()=>document.querySelector('#arena'),card=id=>document.querySelector('[data-u="'+id+'"]');
+function ctr(el){const a=arenaEl().getBoundingClientRect(),r=el.getBoundingClientRect();return[r.left-a.left+r.width/2,r.top-a.top+r.height/2]}
+function upd(U){const el=card(U.id);if(!el)return;el.querySelector('.hpf').style.width=Math.max(0,U.dh/U.dm*100)+'%';el.querySelector('.bf').style.width=Math.min(100,U.db/U.dm*100)+'%';el.querySelector('.hpt').textContent=Math.round(Math.max(0,U.dh))+'/'+Math.round(U.dm);el.querySelector('.chips').innerHTML=U.chipsH;['pet','imm','orbd'].forEach(c=>el.classList.toggle(c,(U.cls||'').includes(c)))}
+function float(el,txt,col,big){if(!el)return;const n=(el._n=(el._n||0)+1),s=document.createElement('span');s.className='fl';s.textContent=txt;s.style.color=col;s.style.top=(26+((n-1)%4)*20)+'px';s.style.marginLeft=(n%2?-12:12)+'px';if(big)s.style.fontSize='1.45rem';el.appendChild(s);setTimeout(()=>{s.remove();el._n=Math.max(0,(el._n||1)-1)},1300)}
+const FXS={impact:['radial-gradient(circle,#fff 0%,rgba(255,190,110,.8) 35%,transparent 70%)',1.5],crit:['radial-gradient(circle,#fff 0%,#ffd23f 40%,rgba(255,120,0,.6) 60%,transparent 75%)',2],slash:['linear-gradient(135deg,transparent 40%,#fff 48%,#fff 52%,transparent 60%)',1.3],mark:['radial-gradient(circle,transparent 45%,#d28bff 55%,transparent 68%)',1.6],curse:['radial-gradient(circle,#fff 0%,#a24bff 45%,transparent 72%)',1.6],lunar:['radial-gradient(circle,#000 0%,#000 38%,#e5dcff 48%,transparent 64%)',1.8],shield:['radial-gradient(circle,transparent 52%,rgba(120,210,255,.95) 60%,rgba(120,210,255,.3) 70%,transparent 78%)',1.5],buff:['radial-gradient(circle,rgba(255,235,140,.9) 0%,rgba(255,210,80,.3) 50%,transparent 72%)',1.6],sand:['radial-gradient(circle,#fff6c8 0%,#e8c46a 45%,transparent 72%)',1.6],heal:['radial-gradient(circle,#c6ffd2 0%,#4cd37a 50%,transparent 72%)',1.6]};
+function fxAt(el,t,sc){if(!el)return;const f=FXS[t];if(!f)return;const o=document.createElement('span');o.className='fxo';o.style.cssText='inset:-10%;border-radius:50%;background:'+f[0];el.appendChild(o);o.animate([{opacity:.95,transform:'scale(.4) rotate(0deg)'},{opacity:0,transform:`scale(${f[1]*(sc||1)}) rotate(40deg)`}],{duration:480}).onfinish=()=>o.remove()}
+const PRJ={bullet:['#ffe08a',18,4,0],arrow:['#d9b27a',30,3,0],bolt:['radial-gradient(circle,#fff,#b57bff 60%,transparent 72%)',20,20,1],sand:['radial-gradient(circle,#fff6c8,#e8c46a 60%,transparent 72%)',18,18,1],ray:['#fff2a8',50,5,0],gaze:['#ff7ae8',44,4,0],curse:['radial-gradient(circle,#fff,#a24bff 60%,transparent 72%)',18,18,1],orb:['radial-gradient(circle,#000 55%,#d9d0ff 62%,transparent 72%)',22,22,1],laser:['#ff9bf0',60,5,0]};
+const SND={bullet:'shot',arrow:'shot',bolt:'bolt',sand:'bolt',ray:'bolt',gaze:'bolt',curse:'bolt',slash:'slash',crescent:'slash',smash:'smash',laser:'laser',orb:'orb'};
+async function proj(A,T,v,fast){const[x1,y1]=ctr(A),[x2,y2]=ctr(T),p=PRJ[v]||PRJ.bolt,e=document.createElement('div');e.className='proj';e.style.cssText=`left:${-p[1]/2}px;top:${-p[2]/2}px;width:${p[1]}px;height:${p[2]}px;background:${p[0]};border-radius:${p[3]?'50%':'2px'};box-shadow:0 0 9px ${p[0][0]==='#'?p[0]:'#b57bff'}`;arenaEl().appendChild(e);const ang=Math.atan2(y2-y1,x2-x1)*180/Math.PI,dur=fast?200:320;e.animate([{transform:`translate(${x1}px,${y1}px) rotate(${ang}deg)`},{transform:`translate(${x2}px,${y2}px) rotate(${ang}deg)`}],{duration:dur,easing:'ease-in'});await sleep(dur);e.remove()}
+async function atkAnim(e){const A=card(e.a),T=card(e.t);if(!A||!T)return;sfx(SND[e.v]||'slash');
+ if(PRJ[e.v])await proj(A,T,e.v,e.f);
+ else{const[x1,y1]=ctr(A),[x2,y2]=ctr(T);A.animate([{transform:'none'},{transform:`translate(${(x2-x1)*.5}px,${(y2-y1)*.5}px) scale(1.15)`},{transform:'none'}],{duration:e.f?200:300,easing:'ease-out'});await sleep(e.f?90:150);fxAt(T,e.v==='smash'?'impact':'slash');await sleep(e.f?60:110)}}
+async function aoeAnim(e){const ar=arenaEl(),o=document.createElement('div');o.className='fxo';o.style.cssText='inset:0;background:'+(e.v==='orb'?'radial-gradient(circle at 50% 50%,#000 0%,rgba(40,15,80,.85) 45%,transparent 80%)':'radial-gradient(circle at 50% 50%,rgba(255,170,255,.55),transparent 75%)');ar.appendChild(o);o.animate([{opacity:0},{opacity:1},{opacity:0}],{duration:750}).onfinish=()=>o.remove();sfx(e.v==='orb'?'orb':'laser');
+ const A=card(e.a);if(e.v!=='orb'&&A)e.ts.forEach(id=>{const T=card(id);if(T)proj(A,T,'laser',1)});shake();await sleep(480)}
+function shake(){const a=arenaEl();if(!a)return;a.classList.remove('shk');void a.offsetWidth;a.classList.add('shk')}
+async function run(e){const U=e.u&&P.u.find(x=>x.id===e.u),el=U&&card(e.u);
+ switch(e.k){
+  case 'log':P.log.unshift(e.t);if(P.log.length>300)P.log.pop();{const l=document.querySelector('#log');if(l)l.innerHTML=P.log.map(esc).join('<br>')}break;
+  case 'turn':document.querySelectorAll('.u.cur').forEach(x=>x.classList.remove('cur'));if(el)el.classList.add('cur');await sleep(180);break;
+  case 'chips':if(U){U.chipsH=e.h;U.cls=e.c;upd(U)}break;
+  case 'cast':sfx('cast');await sleep(120);break;
+  case 'atk':await atkAnim(e);break;
+  case 'aoe':await aoeAnim(e);break;
+  case 'dmg':if(U){U.dh=e.hp;U.db=e.bar;U.dm=e.mh;if(el){el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit')}fxAt(el,e.tag==='Mark'?'mark':e.tag==='Lunar'?'lunar':e.tag==='Veil'||e.tag==='true'?'curse':e.cr?'crit':'impact');
+    float(el,(e.tag&&e.tag!=='dot'?e.tag+' ':'')+e.v+(e.cr?'!':''),TAGC[e.tag||(e.cr?'crit':'n')]||TAGC.n,e.cr);if(e.ab)float(el,'🛡'+e.ab,'#7fc8ff');sfx(e.cr?'crit':e.tag==='dot'?'dot':'hit');if(e.cr)shake();upd(U);await sleep(e.f?120:440)}break;
+  case 'miss':float(el,'Miss','#aab4d6');sfx('miss');await sleep(380);break;
+  case 'imm':float(el,'Immune','#bff');await sleep(300);break;
+  case 'bar':if(U){if(e.bar>U.db){sfx('shield')}U.db=e.bar;U.dm=e.mh;upd(U)}break;
+  case 'hpset':if(U){U.dh=e.hp;U.db=e.bar;U.dm=e.mh;upd(U)}break;
+  case 'fx':if(el){if(SYM[e.f]){float(el,SYM[e.f],'#fff');sfx(DEB.includes(e.f)?'debuff':'buff')}else if(e.f==='hourglass'){float(el,'⌛','#fff');sfx('buff')}else if(e.f==='rest'){float(el,'💤','#fff')}
+    fxAt(el,e.f==='lunar'?'lunar':e.f==='shield'?'shield':e.f==='sand'?'sand':e.f==='mark'?'mark':DEB.includes(e.f)?'curse':'buff');if(e.f==='shield')sfx('shield');if(e.f==='lunar')sfx('orb');await sleep(300)}break;
+  case 'dead':if(U){U.dd=true;U.dh=0;upd(U);if(el)el.classList.add('dead');sfx('die');await sleep(380)}break;
+  case 'spawn':{const row=document.querySelector('#row'+e.team);if(row){row.insertAdjacentHTML('beforeend',e.html);sfx('buff')}await sleep(250)}break;
+  case 'sfx':sfx(e.n);await sleep(400);break}}
+async function flush(){P.busy=true;const q=EV;EV=[];const a=document.querySelector('#acts');if(a)a.style.opacity=.3;
+ try{for(const e of q)await run(e)}catch(x){console.error(x)}
+ P.busy=false;P.u.forEach(u=>{u.dh=Math.max(0,u.hp);u.db=u.bar;u.dm=u.mh;u.chipsH=chipsH(u);u.cls=clsOf(u);u.dd=u.hp<=0});
+ if(S.tab==='play')draw();if(P.auto&&P.ph==='battle')setTimeout(autoLoop,500)}
+/* ---------- sound (synthesised, no files needed) ---------- */
+let AC=null,MGN=null,MUS=null,MT=null;
+function ac(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)();MGN=AC.createGain();MGN.gain.value=.55;MGN.connect(AC.destination)}catch(e){}}if(AC&&AC.state==='suspended')AC.resume();return AC}
+function tone(f,d,ty,v,sl,t0,mu){const a=ac();if(!a||!(mu?P.mus:P.sfxOn))return;const o=a.createOscillator(),g=a.createGain(),t=a.currentTime+(t0||0);o.type=ty||'sine';o.frequency.setValueAtTime(f,t);if(sl)o.frequency.exponentialRampToValueAtTime(Math.max(20,sl),t+d);g.gain.setValueAtTime(v||.12,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(MGN);o.start(t);o.stop(t+d+.03)}
+function noise(d,v,f){const a=ac();if(!a||!P.sfxOn)return;const n=Math.floor(a.sampleRate*d),b=a.createBuffer(1,n,a.sampleRate),x=b.getChannelData(0);for(let i=0;i<n;i++)x[i]=(Math.random()*2-1)*(1-i/n);const s=a.createBufferSource(),g=a.createGain(),fl=a.createBiquadFilter();s.buffer=b;fl.type='lowpass';fl.frequency.value=f||2000;g.gain.value=v||.2;s.connect(fl);fl.connect(g);g.connect(MGN);s.start()}
+const SFXD={slash:()=>{noise(.18,.22,2600);tone(420,.14,'sawtooth',.06,140)},smash:()=>{tone(110,.28,'square',.18,40);noise(.2,.3,600)},shot:()=>{noise(.1,.3,4200);tone(900,.12,'square',.08,200)},bolt:()=>tone(300,.3,'sawtooth',.07,1300),laser:()=>tone(1600,.55,'sawtooth',.07,200),
+ hit:()=>{tone(180,.14,'square',.14,70);noise(.07,.18,900)},crit:()=>{tone(220,.2,'square',.16,60);tone(880,.15,'triangle',.1,1400);noise(.12,.25,1500)},miss:()=>{noise(.2,.1,1200);tone(500,.15,'sine',.04,250)},dot:()=>tone(200,.2,'sine',.09,120),
+ shield:()=>{tone(500,.3,'triangle',.1,900);tone(750,.3,'triangle',.07,1200,.06)},buff:()=>{tone(523,.12,'triangle',.09);tone(784,.18,'triangle',.09,null,.1)},debuff:()=>tone(400,.25,'sawtooth',.07,150),die:()=>tone(300,.55,'sawtooth',.12,40),orb:()=>{tone(80,.8,'sine',.2,260);noise(.4,.12,500)},cast:()=>tone(660,.08,'sine',.06),
+ win:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.35,'triangle',.12,null,i*.16)),lose:()=>[392,330,262].forEach((f,i)=>tone(f,.45,'sawtooth',.08,null,i*.25))};
+function sfx(n){const f=SFXD[n];if(f&&P.sfxOn)try{f()}catch(e){}}
+function synthMusic(){const a=ac();if(!a||MT)return;const N=[57,60,64,60,57,60,64,67,55,59,62,59,55,59,62,65,53,57,60,57,53,57,60,64,52,55,59,55,52,55,59,62],f=m=>440*Math.pow(2,(m-69)/12);let i=0;MT=setInterval(()=>{if(!P.mus)return;const m=N[i%N.length];tone(f(m),.4,'triangle',.04,null,0,1);if(i%8===0){tone(f(m-24),2.2,'sine',.06,null,0,1);tone(f(m-12),2.2,'sine',.03,null,0,1)}i++},300)}
+function musicStart(){if(!P.mus||MUS||MT)return;ac();const a=new Audio('music.mp3');a.loop=true;a.volume=.45;let fb=0;const go=()=>{if(!fb){fb=1;synthMusic()}};a.addEventListener('error',go);a.play().then(()=>{MUS=a}).catch(e=>{if(e.name!=='NotAllowedError')go()})}
+function musicStop(){if(MUS){MUS.pause();MUS=null}if(MT){clearInterval(MT);MT=null}}
+/* ---------- views ---------- */
+function playClick(b){if(P.busy)return;const d=b.dataset;ac();
+ if(d.add){const p=d.add.split(':');if(P[p[0]].length<5)P[p[0]].push(p[1])}
+ else if(d.rm){const p=d.rm.split(':');P[p[0]].splice(+p[1],1)}
+ else if(d.start){if(P.A.length&&P.B.length){musicStart();startBattle();return}}
+ else if(d.mus){P.mus=!P.mus;if(P.mus)musicStart();else musicStop()}
+ else if(d.sfx){P.sfxOn=!P.sfxOn}
+ else if(d.u){const t=P.u.find(x=>x.id===d.u);if(P.cur&&tgOK(t)){doUse(P.arm,t);return}P.ins=d.u}
+ else if(d.ac!==undefined){const i=+d.ac;if(!P.cur||!canUse(P.cur,i))return;if(needT(P.cur,i))P.arm=P.arm===i?null:i;else{doUse(i);return}}
  else if(d.auto){autoTurn();return}
- else if(d.autoall){P.auto=!P.auto;if(P.auto)setTimeout(autoLoop,200)}
- else if(d.setup){P.ph='setup';P.auto=false}
- else if(d.again){startBattle()}
- draw();anim()}
-const uc=u=>{const h=Math.max(0,u.hp/u.mh*100),b=Math.min(100,u.bar/u.mh*100),ch=u.st.map(x=>'<span>'+(SN[x.k]||x.k)+(x.d>1?' '+x.d:'')+'</span>').join('')+(u.orb?'<span>Orb</span>':'');
- return `<button class="u${P.cur===u?' cur':''}${u.hp<=0?' dead':''}${tgOK(u)?' tg':''}" data-u="${u.id}"><div class="pt" style="background-image:url(${ci(u.c.c)})"><img src="images/${u.c.id}.webp" alt="" onerror="this.style.display='none'"></div><b>${esc(u.n)}</b><div class="hpb"><i style="width:${h}%"></i><s style="width:${b}%"></s></div><div>${Math.round(u.hp)}/${Math.round(u.mh)}</div><div class="chips">${ch}</div></button>`};
+ else if(d.autoall){P.auto=!P.auto;if(P.auto){draw();autoLoop();return}}
+ else if(d.setup){P.ph='setup';P.auto=false;musicStop()}
+ else if(d.again){startBattle();return}
+ draw()}
+const tgl=()=>`<button class="act" data-mus="1" aria-pressed="${P.mus}">♪ Music ${P.mus?'on':'off'}</button><button class="act" data-sfx="1" aria-pressed="${P.sfxOn}">🔊 Effects ${P.sfxOn?'on':'off'}</button>`;
+const uc=u=>{const hp=Math.max(0,u.dh/u.dm*100),b=Math.min(100,u.db/u.dm*100);
+ return `<button class="u${P.cur===u?' cur':''}${u.dd?' dead':''}${u.rem?' rem':''}${tgOK(u)?' tg':''} ${u.cls||''}" data-u="${u.id}" style="--rbg:${rb(u.c.r)||'linear-gradient(#2a3150,#2a3150)'}"><div class="pt" style="background-image:url(${ci(u.c.c)})"><img src="images/${u.c.id}.webp" alt="" onerror="this.style.display='none'"><img class="cb" src="${ci(u.c.c)}" alt=""></div><span class="nm">${esc(u.n)}</span><div class="hpb"><i class="hpf" style="width:${hp}%"></i><s class="bf" style="width:${b}%"></s></div><small class="hpt">${Math.round(Math.max(0,u.dh))}/${Math.round(u.dm)}</small><div class="chips">${u.chipsH}</div></button>`};
 function insp(){const u=P.u.find(x=>x.id===P.ins)||P.cur;if(!u)return'';
- return `<h3>${esc(u.n)} <span class="tag">${u.c.c}</span><span class="tag">${u.c.r||''}</span></h3><div class="card">HP ${Math.round(u.hp)}/${Math.round(u.mh)}${u.bar>0?' · Barrier '+Math.round(u.bar):''} · Speed ${Math.round(spd(u))}<details><summary class="muted">All stats</summary><table>${G.map(x=>`<tr><td>${x[1]}</td><td class="v">${fmt(x[0],Math.round(u.s[x[0]]*10)/10)}</td></tr>`).join('')}</table></details></div>`+u.ab.map((a,i)=>`<div class="card"><div class="row" style="margin:0"><img class="ico" style="width:44px;height:44px" src="${aIc(u.c,i)}" alt=""><div><b>${esc(a.n)}</b><span class="tag">${a.t}</span>${a.cd?`<span class="tag">CD ${a.cd}${a.s?' (now '+u.cd[i]+')':''}</span>`:''}${a.ns?'<span class="tag">not simulated yet</span>':''}</div></div><div class="muted" style="margin-top:6px">${esc(a.d)}</div></div>`).join('')}
+ return `<h3>Inspect</h3><div class="card ins"><div class="pt big" style="--rbg:${rb(u.c.r)||'linear-gradient(#2a3150,#2a3150)'};background-image:url(${ci(u.c.c)})"><img src="images/${u.c.id}.webp" alt="" onerror="this.style.display='none'"></div><div style="flex:1;min-width:0"><div class="cz" style="font-weight:800">${esc(u.n)}</div><div class="row" style="margin:4px 0"><img class="ico" style="width:28px;height:28px" src="${ci(u.c.c)}" alt=""><span>${u.c.c}</span>${u.c.r?`<span class="tag">${u.c.r}</span>`:''}</div><div>HP ${Math.round(u.hp)}/${Math.round(u.mh)}${u.bar>0?' · 🛡 '+Math.round(u.bar):''} · Speed ${Math.round(spd(u))}</div><div class="chips">${chipsH(u)}</div><details><summary class="muted">All stats (level ${lvOf(u.c)})</summary><table>${G.map(x=>`<tr><td>${x[1]}</td><td class="v">${fmt(x[0],Math.round(u.s[x[0]]*10)/10)}</td></tr>`).join('')}</table></details></div></div>`+u.ab.map((a,i)=>`<div class="card"><div class="row" style="margin:0"><img class="ico" style="width:44px;height:44px" src="${aIc(u.c,i)}" alt=""><div><b>${esc(a.n)}</b><span class="tag">${a.t}</span>${a.cd?`<span class="tag">Cooldown ${a.cd}${a.s&&u.cd[i]?' (ready in '+u.cd[i]+')':''}</span>`:''}</div></div><div class="muted" style="margin-top:6px">${esc(a.d)}</div></div>`).join('')}
 function vPlay(){
- if(P.ph==='setup'){const L=SIMC(),sec=(k,lab)=>`<h3>${lab} (${P[k].length}/3)</h3><div class="pick">${L.map(c=>`<button class="pk" data-pk="${k}:${c.id}" aria-pressed="${P[k].includes(c.id)}"><img src="${ci(c.c)}" alt="">${esc(SH(c.n))}</button>`).join('')}</div>`;
-  return `<h2>Play</h2><p class="muted">Prototype: you control both teams, turn by turn. Pick up to 3 units for each side.</p>${sec('A','Bottom team')}${sec('B','Top team')}<div class="card" style="margin-top:14px"><label>Battle level <b id="plvn">${P.lv}</b> / ${MAXLV}<input type="range" id="plv" min="1" max="${MAXLV}" value="${P.lv}" style="width:100%"></label></div><button class="flipbtn" data-start="1">Start battle</button>`}
- const u=P.cur,row=t=>`<div class="team">${P.u.filter(x=>x.team===t).map(uc).join('')}</div>`;
- let h=`<div class="row"><b class="cz">Round ${P.rd}</b><span class="muted">${P.ph==='end'?'Battle over':'Turn: '+esc(u.n)+' ('+(u.team===1?'bottom':'top')+' team)'}</span><button class="back-btn" data-setup="1" style="margin-left:auto">Setup</button></div>`+row(2)+row(1);
- if(P.ph==='end')h+=`<div class="card"><b class="cz">${P.win===1?'Bottom team wins!':P.win===2?'Top team wins!':'Draw'}</b></div><button class="flipbtn" data-again="1">Rematch</button>`;
- else h+=`<div class="acts">${u.ab.map((a,i)=>a.s?`<button class="act" data-ac="${i}" aria-pressed="${P.arm===i}" ${canUse(u,i)?'':'disabled'}><img src="${aIc(u.c,i)}" alt=""><span>${esc(a.n)}${a.cd?`<br><small>${u.cd[i]?'Cooldown '+u.cd[i]:'CD '+a.cd}</small>`:''}</span></button>`:'').join('')}</div><p class="muted">${P.arm!==null?'Tap a highlighted enemy to attack it.':'Pick an ability. Tap any unit to inspect it.'}</p><div class="acts"><button class="act" data-auto="1">Auto turn (AI)</button><button class="act" data-autoall="1" aria-pressed="${P.auto}">Watch AI play</button></div>`;
- return h+insp()+`<h3>Log</h3><div class="log">${P.log.map(esc).join('<br>')}</div>`}
+ if(P.ph==='setup'){const pool=k=>k==='A'?ALLY():FOE(),sec=(k,lab)=>`<h3>${lab} (${P[k].length}/5)</h3><div class="slots">${P[k].map((id,i)=>{const c=CH.find(x=>x.id===id);return `<button class="sl" data-rm="${k}:${i}" style="--rbg:${rb(c.r)}"><img src="${ci(c.c)}" alt="">${esc(SH(c.n))} ×</button>`}).join('')||'<span class="muted">Empty. Add units below.</span>'}</div><div class="pick" style="margin-top:8px">${pool(k).map(c=>`<button class="pk" data-add="${k}:${c.id}" ${P[k].length>=5?'disabled':''}><img src="${ci(c.c)}" alt="">${esc(SH(c.n))} +</button>`).join('')}</div>`;
+  return `<h2>Play</h2><p class="muted">Pick 1 to 5 units per side. You can repeat units. You control both sides, turn by turn.</p>${sec('A','Your team (Desert Kingdom)')}${sec('B','Enemy team (The Plagues)')}<div class="card" style="margin-top:14px"><label>Battle level for everyone <b id="plvn">${P.lv}</b> / 50<input type="range" id="plv" min="1" max="50" value="${P.lv}" style="width:100%"></label></div><div class="acts">${tgl()}</div><button class="flipbtn" data-start="1">Start battle</button>`}
+ const u=P.cur,row=t=>`<div class="trow" id="row${t}">${P.u.filter(x=>x.team===t).map(uc).join('')}</div>`;
+ let h=`<div class="row"><b class="cz">Round ${P.rd}</b><span class="muted">${P.ph==='end'?'Battle over':'Turn: '+esc(u.n)+' ('+(u.team===1?'bottom':'top')+' team)'}</span><button class="back-btn" data-setup="1" style="margin-left:auto">Setup</button></div><div class="arena" id="arena">${row(2)}${row(1)}</div>`;
+ if(P.ph==='end')h+=`<div class="card"><b class="cz">${P.win===1?'Victory!':P.win===2?'Defeat':'Draw'}</b></div><button class="flipbtn" data-again="1">Rematch</button><div class="acts">${tgl()}</div>`;
+ else h+=`<div id="acts"><div class="acts">${u.ab.map((a,i)=>a.s?`<button class="act" data-ac="${i}" aria-pressed="${P.arm===i}" ${canUse(u,i)?'':'disabled'}><img src="${aIc(u.c,i)}" alt=""><span>${esc(a.n)}${a.cd?`<br><small>${u.cd[i]?'Cooldown '+u.cd[i]:'Cooldown '+a.cd}</small>`:''}</span></button>`:'').join('')}</div><p class="muted">${P.arm!==null?'Tap a highlighted enemy to attack it.':'Pick an ability. Tap any unit to inspect it.'}</p><div class="acts"><button class="act" data-auto="1">Auto turn (AI)</button><button class="act" data-autoall="1" aria-pressed="${P.auto}">Watch AI play</button>${tgl()}</div></div>`;
+ return h+`<h3>Actions</h3><div class="log" id="log">${P.log.map(esc).join('<br>')}</div>`+insp()}
 
 function draw(){nav();$('#app').innerHTML=({cover:vCover,classes:vClasses,stats:vStats,kingdoms:vKingdoms,play:vPlay})[S.tab]()}
 $('#app').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(S.tab==='play'){playClick(b);return}const d=b.dataset;
